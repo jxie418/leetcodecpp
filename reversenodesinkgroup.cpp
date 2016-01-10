@@ -66,7 +66,9 @@ int main() {
 	p = head;
 	while(p!= NULL) {
 	   cout<<p->val<<" ";
+           ListNode * q =p;
 	   p = p->next;
+	   delete q;
 	}
 	cout<<endl;
 	cout<<"Done"<<endl;
