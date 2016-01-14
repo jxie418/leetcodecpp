@@ -15,13 +15,13 @@ public:
 				return true;
 			} else {
 				if ( A[mid] > A[L]) {
-					if ( A[L] < target && target < A[mid] ) {
+					if ( A[L] <= target && target <= A[mid] ) {
 						R = mid - 1;
 					} else {
 						L = mid + 1;
 					}
 				} else if ( A[mid] < A[L] ) {
-					if ( A[mid] < target && target < A[R] ) {
+					if ( A[mid] <= target && target <= A[R] ) {
 						L = mid + 1;
 					} else {
 						R = mid - 1;
