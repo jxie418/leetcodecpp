@@ -14,7 +14,7 @@ public:
 			int tc = 0;
 			if ( s[i] == '0') {
 				int d1 = (s[i-1] -'0');
-				if ( d1 < 3 && d1 > 0 ) {
+				if ( 0 < d1 && d1 < 3 ) {
 					tc = t2;
 				}
 			}
@@ -38,7 +38,7 @@ public:
 };
 int main() {
 	Solution s;
-	int res = s.numDecodings("12345");
+	int res = s.numDecodings("12212");
 	cout<<res<<endl;
 	return 0;
 }
