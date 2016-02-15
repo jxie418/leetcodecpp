@@ -29,4 +29,17 @@ class Solution {
             --j;
         }
     }
+    void reverseWords(string &s) {
+	reverse(s.begin(), s.end());
+	int n = s.size(),i = 0,j = 0;
+	while(i < n) {
+		j = i;
+		while(j<n && s[j] != ' ') {
+			j++;
+		}
+		reverse(s.begin() +i, s.begin()+j);
+		i = j+1;
+	}
+    }
 };
+
