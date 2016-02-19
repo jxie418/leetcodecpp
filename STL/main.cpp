@@ -53,5 +53,10 @@ cout<<*itr<<endl;
 cout<<m<<endl;
 cout<<square(5)<<endl;
 cout<<square(5.5)<<endl;
+string str1 ="abc";
+string str11 = str1.substr(0,2);
+string str12 = str1.substr(3);
+cout<<str11<<endl;
+cout<<str12<<endl;
 return 0;
 }
