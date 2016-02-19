@@ -2,6 +2,28 @@
 #include<vector>
 #include<iostream>
 
+class Solution1 {
+public:
+    vector<string> generateAbbreviations(string word) {
+        vector<string> result;
+        string cur = word;
+        result.push_back(word);
+        helper(result,cur,word.size(),0,word);
+        return result;
+    }
+private:
+    void helper(vector<string>& result,string cur,int num,int idx,string word) {
+        for (int i = idx; i < word.size(); i++) {
+            for (int len = 1; len <= num && i+len-1 < cur.size(); len++) {
+                string tmp = cur;
+                tmp.replace(i, len, to_string(len));
+                result.push_back(tmp);
+                helper(result, tmp, num, i+to_string(len).size()+1, word);
+            }
+        }
+    }
+};
+
 class Solution {
 public:
 	vector<string> generateAbbreviations(string word) {
