@@ -1,44 +1,27 @@
-#include<unordered_map>
-#include<string>
 #include<vector>
+#include<unordered_map>
+#include<iostream>
 using namespace std;
 class Solution {
-private:
-unordered_map<string,vector<int>> mp;
 public:
-	Solution(vector<string> words) {
-		for (int i= 0; i< words.size(); ++i) {
-			if(mp.find(words[i]) == mp.end()) {
-				vector<int> p;
-				p.push_back(i);
-				mp[words[i]] = p;
-			} else {
-				mp[words[i]].push_back(i);
+	int maxSubArrayLen(vector<int> &nums,int k) {
+		unordered_map<int,int> sums;
+		int cur_sum =0, max_len= 0;
+		for (int i = 0; i < nums.size(); ++i) {
+			cur_sum+=nums[i];
+			if (cur_sum == k) {
+				max_len = i +1;
+			} else if (sums.find(cur_sum -k)  != sums.end()) {
+				max_len = max(max_len, i- sums[cur_sum-k]);
+			} 
+			if (sums.find(cur_sum) == sums.end()) {
+				sums[cur_sum] = i;
 			}
 		}
+		return max_len;
 	}
-	int distance(string wordOne, string wordTwo) {
-		if (mp.find(wordOne) == mp.end() || mp.find(wordTwo) == mp.end()) {
-			return INT_MAX;
-		}
-		int index1 =0 ,index2 = 0;
-		int mindistance = INT_MAX;
-		while(index1 < mp[wordOne].size() && index2 < mp[wordTwo].size()) {
-			if (mp[wordOne][index1] < mp[wordTwo][index2]) {
-				mindistance = min(mindistance, mp[wordTwo][index2] - mp[wordOne][index1]);
-				index1++;
-			} else {
-				mindistance = min(mindistance, mp[wordOne][index1] - mp[wordTwo][index2]);
-				index2++;
-			}
-		}
-		return mindistance;
-	}
-
 };
-
 int main() {
+	Solution s;
 	return 0;
 }
-
-

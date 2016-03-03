@@ -5,7 +5,25 @@
 using namespace std;
 
 class Solution {
+
+
+
 public:
+    vector<string> findMissingRanges2(vector<int> A, int lower, int upper) {
+    	vector<string> res;
+        int pre = lower -1 , cur = 0;
+	for (int i = 0; i <=nums.size(); ++i) {
+		cur = i == nums.size() ? upper +1 : nums[i];
+		if (cur - pre > 1) {
+			res.push_back(getRanges(pre+1,curr-1));
+		}
+		pre = cur;
+	}
+	return res;
+    }
+    string getRanges(int from,int to) {
+          return from == to ? to_string(from) : to_string(from)+"->"+to_string(to);
+    }
     vector<string> findMissingRanges(int A[], int n, int lower, int upper) {
         vector<string> out;
         int curstart = lower;
