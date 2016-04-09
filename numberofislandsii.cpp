@@ -1,9 +1,7 @@
 #include<iostream>
 #include<unordered_map>
 #inlcude<vector>
-
 using namespace std;
-
 struct Point {
       int x;
       int y;
