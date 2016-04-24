@@ -1,10 +1,7 @@
 #include<string>
 #include<vector>
 #include<iostream>
-
 using namespace std;
-
-
 class Solution {
     vector<string> processString(const vector<string>& vec, int n, int total) {
         vector<string> ret;
@@ -19,13 +16,11 @@ class Solution {
         }
         return ret;
     }
-
     vector<string> findImp(int n, int total) {
         if (n == 0) { return vector<string> { "" }; }
         if (n == 1) { return vector<string> { "1", "8", "0" }; }
         return processString(findImp(n - 2, total), n, total);
     }
-
 public:
     vector<string> findStrobogrammatic(int n) {
         return findImp(n, n);

@@ -14,7 +14,7 @@ public:
                     if(p1>p2) p2 = i;
                     else p1 = i;
                 }
-            }else{
+            } else {
                 if(words[i]==word1) p1 = i;
                 if(words[i]==word2) p2 = i;
             }
